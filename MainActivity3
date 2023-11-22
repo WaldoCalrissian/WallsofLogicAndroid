@@ -1,0 +1,315 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Random;
+
+public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
+    private CountDownTimer countDownTimer;
+    private String Ranking = "Super Genius";
+    private String fileline2 = "";
+    private String fileline3 = "";
+    private long getTimeLeftInMilliseconds = 1200000;
+
+    private Integer Countrack = 120;
+    private boolean timerRunning;
+    private Integer Score = 0;
+    int Line2 = 0;
+    int Line3 = 0;
+    int Tile[] = new int[25];
+    int Box[] = new int[10];
+    Boolean Game_Done = new Boolean(false);
+
+    private ImageView imageView10;
+    private ImageView imageView11;
+    private ImageView imageView12;
+    private ImageView imageView13;
+    private TextView textView4;
+    private TextView Timer;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button10;
+    private Button button11;
+    private Button button12;
+    private Button button13;
+    private Button button14;
+    private Button button15;
+
+    private Button button16;
+    private Button button26;
+    private CountDownTimer mCountDownTimer;
+    private long timeLeftInMilliseconds = 120000;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main3);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+        button11 = (Button) findViewById(R.id.button11);
+        button12 = (Button) findViewById(R.id.button12);
+        button13 = (Button) findViewById(R.id.button13);
+        button14 = (Button) findViewById(R.id.button14);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
+        button26 = (Button) findViewById(R.id.button26);
+        imageView10 = (ImageView) findViewById(R.id.imageView10);
+        imageView11 = (ImageView) findViewById(R.id.imageView11);
+        imageView12 = (ImageView) findViewById(R.id.imageView12);
+        imageView13 = (ImageView) findViewById(R.id.imageView13);
+        textView4 = (TextView) findViewById(R.id.textView4);
+        Timer = (TextView) findViewById(R.id.Timer);
+
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button7.setOnClickListener(this);
+        button8.setOnClickListener(this);
+        button9.setOnClickListener(this);
+        button10.setOnClickListener(this);
+        button11.setOnClickListener(this);
+        button12.setOnClickListener(this);
+        button13.setOnClickListener(this);
+        button14.setOnClickListener(this);
+        button15.setOnClickListener(this);
+        button16.setOnClickListener(this);
+        button26.setOnClickListener(this);
+
+        for (int l = 0; l < 25; l++) {
+            Tile[l] = 1;
+        }
+//        Random random = new Random();
+//        int val = random.nextInt(3);
+//        val = val + 1;
+//        Tile[4] = val;
+//        button4.setText(String.valueOf(val));
+        button16.performClick();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.button1) {
+            button_subroutine(button1, 1);
+            box_update1(imageView10, 1);
+        }
+        if (view.getId() == R.id.button2) {
+            button_subroutine(button2, 2);
+            box_update1(imageView10, 1);
+        }
+        if (view.getId() == R.id.button3) {
+            button_subroutine(button3, 3);
+            box_update1(imageView10, 1);
+        }
+        if (view.getId() == R.id.button4) {
+            button_subroutine(button4, 4);
+            box_update2(imageView11, 4);
+        }
+        if (view.getId() == R.id.button5) {
+            button_subroutine(button5, 5);
+            box_update2(imageView11, 5);
+        }
+        if (view.getId() == R.id.button6) {
+            button_subroutine(button6, 6);
+            box_update2(imageView11, 6);
+        }
+        if (view.getId() == R.id.button7) {
+            button_subroutine(button7, 7);
+            box_update2(imageView11, 7);
+        }
+        if (view.getId() == R.id.button8) {
+            button_subroutine(button8, 8);
+            box_update2(imageView11, 8);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button9) {
+            button_subroutine(button9, 9);
+            box_update2(imageView11, 9);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button10) {
+            button_subroutine(button10, 10);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button11) {
+            button_subroutine(button11, 11);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button12) {
+            button_subroutine(button12, 12);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button13) {
+            button_subroutine(button13, 13);
+            box_update3(imageView12, 8);
+        }
+        if (view.getId() == R.id.button14) {
+            button_subroutine(button14, 14);
+            box_update3(imageView12, 8);
+            box_update4(imageView13, 8);
+        }
+        if (view.getId() == R.id.button15) {
+            button_subroutine(button15, 15);
+            box_update4(imageView13, 8);
+        }
+        if (view.getId() == R.id.button16) {
+            button_subroutine(button16, 16);
+            box_update4(imageView13, 8);
+        }
+        if (view.getId() == R.id.button26) {
+            openActivity();
+        }
+        startStop();
+    }
+
+    private void openActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void startStop() {
+        if (timerRunning) {
+            //
+        }
+        else {
+            startTimer();
+        }
+    }
+
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMilliseconds, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMilliseconds = l;
+                updateTimer();
+            }
+            @Override
+            public void onFinish() {
+            }
+        }.start();
+        timerRunning = true;
+    }
+
+    private void updateTimer() {
+        int minutes = (int) timeLeftInMilliseconds / 60000;
+        int seconds = (int) timeLeftInMilliseconds % 60000 / 500;
+        String timeLeftText;
+        timeLeftText = " " + seconds;
+        // countdownText.setText(timeLeftText);
+        if (Game_Done == false) {
+            Timer.setText(timeLeftText);}
+        //Timer.setText(timeLeftText);
+        //button_param.setText(String.valueOf(Tile[i]));
+        //Ranking
+        Score = seconds;
+        if(Score >= 80){Ranking = "Super Genius";}
+        if(Score < 80 && Score >= 70){Ranking = "Genius";}
+        if(Score < 70 && Score >= 60){Ranking = "Expert";}
+        if(Score < 60 && Score >= 50){Ranking = "Advanced";}
+        if(Score < 50 && Score >= 40){Ranking = "Novice";}
+        if(Score < 40 && Score >= 30){Ranking = "Apprentice";}
+        if(Score < 30 && Score >= 20){Ranking = "Freshman";}
+        if(Score < 20 && Score >= 10){Ranking = "Toddler";}
+        if(Score < 10){Ranking = "Neanderthal";}
+        if(Score <= 1){Game_Done = true;}
+        if(Game_Done == false)
+        {textView4.setText(Ranking);}
+    }
+
+    private void button_subroutine(Button button_param, int i) {
+        String value_string = button_param.getText().toString();
+        int present_value = Integer.parseInt(value_string);
+        Tile[i] = present_value;
+        if (Tile[i]==0){Tile[i]=1;}
+        Tile[i] = Tile[i] + 1;
+        if (Tile[i] >= 4){Tile[i] = 1;}
+        button_param.setText(String.valueOf(Tile[i]));
+    }
+    private void box_update1(ImageView imageViewchk, int i) {
+
+        check_box(1,1,2,3);
+        if (Box[1]==0){
+            imageViewchk.setImageResource(R.drawable.triangle1a);
+        }
+        if (Box[1]==1){
+            imageViewchk.setImageResource(R.drawable.triangle1b);
+        }
+    }
+
+    private void box_update2(ImageView imageViewchk, int i) {
+        check_box(2,4,5,8);
+        check_box(3,3,5,6);
+        check_box(4,6,7,9);
+        Line2=0;
+        if (Box[4]==0) {Line2=0;}
+        if (Box[4]==1) {Line2=Line2+1;}
+        if (Box[3]==0) {Line2=Line2+0;}
+        if (Box[3]==1) {Line2=Line2+2;}
+        if (Box[2]==0) {Line2=Line2+0;}
+        if (Box[2]==1) {Line2=Line2+4;}
+        fileline2 = "triangle_2_" + String.valueOf(Line2);
+        imageViewchk.setImageResource(getResources().getIdentifier(fileline2, "drawable", getPackageName()));
+    }
+    private void box_update3(ImageView imageViewchk, int i) {
+        check_box(5,8,10,11);
+        check_box(6,11,12,14);
+        check_box(7,9,12,13);
+        Line3=0;
+        if (Box[7]==0) {Line3=0;}
+        if (Box[7]==1) {Line3=Line3+1;}
+        if (Box[6]==0) {Line3=Line3+0;}
+        if (Box[6]==1) {Line3=Line3+2;}
+        if (Box[5]==0) {Line3=Line3+0;}
+        if (Box[5]==1) {Line3=Line3+4;}
+        fileline3 = "triangle_3_" + String.valueOf(Line3);
+        imageViewchk.setImageResource(getResources().getIdentifier(fileline3, "drawable", getPackageName()));
+    }
+    private void box_update4(ImageView imageViewchk, int i) {
+
+        check_box(8,14,15,16);
+        if (Box[8]==0){
+            imageViewchk.setImageResource(R.drawable.triangle_4_0);
+        }
+        if (Box[8]==1){
+            imageViewchk.setImageResource(R.drawable.triangle_4_1);
+        }
+    }
+    private void check_box(int i, int a, int b, int c) {
+        Box[i]=0;
+        if (Tile[a] != Tile[b] && Tile[b] != Tile[c] && Tile[a] != Tile[c]){
+            Box[i]=1;
+        }
+        if (Box[1]==1 && Box[2]==1 && Box[3]==1 && Box[4]==1 && Box[5]==1 && Box[6]==1 && Box[7]==1 && Box[8]==1){
+            Game_Done = true;
+            textView4.setText(Ranking + " Game Over");
+            timerRunning = false;
+        }
+    }
+}
+
+
